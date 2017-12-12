@@ -1,4 +1,16 @@
 #!/usr/bin/env bash
+
+WEBAPOLLO_DB_DATA="/var/lib/postgresql/9.6/main"
+
+if [ ! -e ${WEBAPOLLO_DB_DATA} ]; then
+	mkdir -p ${WEBAPOLLO_DB_DATA}
+	chown -R postgres:postgres ${WEBAPOLLO_DB_DATA}
+fi
+
+if [ ! -e "${WEBAPOLLO_DB_DATA}/PG_VERSION" ];then
+	su -c "/usr/lib/postgresql/9.6/bin/initdb -D ${WEBAPOLLO_DB_DATA}" postgres
+fi
+
 service postgresql start
 
 
