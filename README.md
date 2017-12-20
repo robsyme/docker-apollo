@@ -65,7 +65,11 @@ The default credentials in this image are:
 
 ### Loading Data
 
-Some sample data is baked into the container for you to play around with:
+Some sample data is baked into the container for you to play around with.  Add an organism per the [instructions under Figure 2](http://genomearchitect.readthedocs.io/en/latest/Apollo2Build.html#login-to-the-web-interface).  
+
+We also provide [external datasets](http://genomearchitect.readthedocs.io/en/latest/Apollo2Build.html#adding-sample-data) to get you started quickly.
+
+Details for the jbrowse data are below: 
 
 ![](./img/sample.png)
 
