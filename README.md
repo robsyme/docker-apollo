@@ -13,9 +13,7 @@
 
 ## Running the Container
 
-The container is publicly available as `gmod/apollo:stable`. The recommended
-method for launching the container is via docker-compose due to a dependency on
-a postgres image.
+The container is publicly available as `gmod/apollo:latest`. 
 
 There are a large number of environment variables that can be adjusted to suit
 your site's needs. These can be seen in the
@@ -63,16 +61,21 @@ The default credentials in this image are:
 | Password    | `password`         |
 
 
-### Loading Data
+### Example Workflow
 
-Some sample data is baked into the container for you to play around with.  Add an organism per the [instructions under Figure 2](http://genomearchitect.readthedocs.io/en/latest/Apollo2Build.html#login-to-the-web-interface).  
 
-We also provide [external datasets](http://genomearchitect.readthedocs.io/en/latest/Apollo2Build.html#adding-sample-data) to get you started quickly.
+1. Make the following directories somewhere with write permissions: `postgres-data` and `jbrowse-data`. 
+1. Copy your jbrowse data into `jbrowse-data`.  We provide [working sample data](http://genomearchitect.readthedocs.io/en/latest/Apollo2Build.html#adding-sample-data).
+1. Run the docker-command:  `docker run -it -v /absolute/path/to/jbrowse-data:/data -v /absolute/path/to/postgres-data:/var/lib/postgresql -p 8888:8080 quay.io/gmod/docker-apollo:latest`
+1. Login to the server at `http://localhost:8888/`
+1. Add an organism per the [instructions under Figure 2](http://genomearchitect.readthedocs.io/en/latest/Apollo2Build.html#login-to-the-web-interface).   Using yeast as an example, if you copy the data into `jbrowse-data/yeast` then on the server 
+you'll add the directory: `/data/yeast`. 
 
-Details for the jbrowse data are below: 
-
-![](./img/sample.png)
+![](./img/small-sample.png)
 
 ### Chado
 
 Chado support is now baked into the GMOD docker container image.
+
+
+
