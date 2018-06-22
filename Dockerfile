@@ -8,7 +8,7 @@ RUN apt-get -qq update --fix-missing && \
 	apt-get --no-install-recommends -y install \
 	git build-essential maven tomcat8 libpq-dev postgresql-common openjdk-8-jdk wget \
 	postgresql postgresql-client xmlstarlet netcat libpng-dev \
-	zlib1g-dev libexpat1-dev ant curl ssl-cert
+	zlib1g-dev libexpat1-dev ant curl ssl-cert zip unzip
 
 RUN curl -sL https://deb.nodesource.com/setup_8.x | bash -
 RUN apt-get -qq update --fix-missing && \
@@ -21,15 +21,22 @@ RUN cp /usr/lib/jvm/java-8-openjdk-amd64/lib/tools.jar /usr/lib/jvm/java-8-openj
 ENV WEBAPOLLO_VERSION 99c7e54c6e74fbc6705d57de216c9b14b2bfb03b
 RUN curl -L https://github.com/GMOD/Apollo/archive/${WEBAPOLLO_VERSION}.tar.gz | tar xzf - --strip-components=1 -C /apollo
 
+# install grails
+
 
 COPY build.sh /bin/build.sh
 ADD apollo-config.groovy /apollo/apollo-config.groovy
 
 RUN chown -R apollo:apollo /apollo
 USER apollo
-RUN bash /bin/build.sh
-USER root
+RUN curl -s get.sdkman.io | bash
+RUN /bin/bash -c "source $HOME/.sdkman/bin/sdkman-init.sh && yes | sdk install grails 2.5.5"
+RUN /bin/bash -c "source $HOME/.sdkman/bin/sdkman-init.sh && yes | sdk install gradle 3.2.1"
 
+
+RUN /bin/bash -c "source $HOME/.profile && source $HOME/.sdkman/bin/sdkman-init.sh && /bin/bash /bin/build.sh"
+
+USER root
 ENV CATALINA_HOME=/usr/local/tomcat/
 RUN rm -rf ${CATALINA_HOME}/webapps/* && \
 	cp /apollo/apollo*.war ${CATALINA_HOME}/apollo.war
