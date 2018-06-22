@@ -28,7 +28,7 @@ Install [docker](https://docs.docker.com/engine/installation/) for your system i
 
 Choose an option:
 
-- To test a versioned release to test installation, e.g.: `docker run -it -p 8888:8080 quay.io/gmod/docker-apollo:2.0.8`  [Other available versions](https://quay.io/repository/gmod/docker-apollo?tab=tags)
+- To test a versioned release to test installation, e.g.: `docker run -it -p 8888:8080 quay.io/gmod/docker-apollo:2.1.0`  [Other available versions](https://quay.io/repository/gmod/docker-apollo?tab=tags)
 
 - Install a latest release to test installation: `docker run -it -p 8888:8080 gmod/apollo:latest` 
   -  To make sure you have the latest pull with ```docker pull gmod/apollo``` to fetch newer versions
