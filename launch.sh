@@ -72,8 +72,7 @@ FIXED_CTX=$(echo "${CONTEXT_PATH}" | sed 's|/|#|g')
 WAR_FILE=${CATALINA_HOME}/webapps/${FIXED_CTX}.war
 
 echo "Restarting tomcat with $CATALINA_HOME"
-$CATALINA_HOME/bin/shutdown.sh
-$CATALINA_HOME/bin/startup.sh
+service tomcat8 restart
 
 cp ${CATALINA_HOME}/apollo.war ${WAR_FILE}
 

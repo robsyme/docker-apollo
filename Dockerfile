@@ -35,7 +35,7 @@ RUN /bin/bash -c "source $HOME/.sdkman/bin/sdkman-init.sh && yes | sdk install g
 RUN /bin/bash -c "source $HOME/.profile && source $HOME/.sdkman/bin/sdkman-init.sh && /bin/bash /bin/build.sh"
 
 USER root
-ENV CATALINA_HOME=/usr/local/tomcat/
+ENV CATALINA_HOME=/var/lib/tomcat8
 RUN rm -rf ${CATALINA_HOME}/webapps/* && \
 	cp /apollo/apollo*.war ${CATALINA_HOME}/apollo.war
 
