@@ -26,6 +26,10 @@ COPY build.sh /bin/build.sh
 ADD apollo-config.groovy /apollo/apollo-config.groovy
 
 RUN chown -R apollo:apollo /apollo
+RUN curl -s "http://hgdownload.soe.ucsc.edu/admin/exe/linux.x86_64/blat/blat" -o /usr/local/bin/blat
+RUN chmod +x /usr/local/bin/blat
+
+
 USER apollo
 RUN curl -s get.sdkman.io | bash
 RUN /bin/bash -c "source $HOME/.sdkman/bin/sdkman-init.sh && yes | sdk install grails 2.5.5"
