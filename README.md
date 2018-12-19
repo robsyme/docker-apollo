@@ -1,7 +1,8 @@
 # Apollo
 
 ![Apollo Logo](https://github.com/GMOD/docker-apollo/raw/master/img/ApolloLogo_100x36.png)
-[![DOI](https://zenodo.org/badge/58064464.svg)](https://zenodo.org/badge/latestdoi/58064464)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.2257772.svg)](https://doi.org/10.5281/zenodo.2257772)
+
 
 
 
