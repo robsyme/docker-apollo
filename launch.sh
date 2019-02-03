@@ -46,7 +46,7 @@ done
 
 echo "Postgres is up, configuring database"
 
-su postgres -c "PGPASSWORD=$WEBAPOLLO_DB_PASSWORD psql $WEBAPOLLO_HOST_FLAG -U $WEBAPOLLO_DB_USERNAME-lqt | cut -d \| -f 1 | grep -qw $WEBAPOLLO_DB_NAME"
+su postgres -c "PGPASSWORD=$WEBAPOLLO_DB_PASSWORD psql $WEBAPOLLO_HOST_FLAG -U $WEBAPOLLO_DB_USERNAME -lqt | cut -d \| -f 1 | grep -qw $WEBAPOLLO_DB_NAME"
 if [[ "$?" == "1" ]]; then
 	echo "Apollo database not found, creating..."
 	su postgres -c "createdb $WEBAPOLLO_HOST_FLAG $WEBAPOLLO_DB_NAME"
