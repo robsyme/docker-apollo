@@ -118,11 +118,11 @@ jbrowse {
         HideTrackLabels{
             included = true
         }
-//        GCContent{
-//            git = 'https://github.com/cmdcolin/GCContent'
-//            branch = 'master'
-//            alwaysRecheck = "true"
-//            alwaysPull = "true"
-//        }
+        GCContent{
+            git = 'https://github.com/cmdcolin/GCContent'
+            branch = 'master'
+            alwaysRecheck = "true"
+            alwaysPull = "true"
+        }
     }
 }
