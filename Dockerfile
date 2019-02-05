@@ -19,7 +19,7 @@ RUN apt-get -qq update --fix-missing && \
 RUN cp /usr/lib/jvm/java-8-openjdk-amd64/lib/tools.jar /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/ext/tools.jar && \
 	useradd -ms /bin/bash -d /apollo apollo
 
-ENV WEBAPOLLO_VERSION 99c7e54c6e74fbc6705d57de216c9b14b2bfb03b
+ENV WEBAPOLLO_VERSION e7adf9392699caa317898391d79d09bbd399f8e8
 RUN curl -L https://github.com/GMOD/Apollo/archive/${WEBAPOLLO_VERSION}.tar.gz | tar xzf - --strip-components=1 -C /apollo
 
 # install grails
