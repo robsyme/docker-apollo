@@ -8,7 +8,6 @@ RUN apt-get -qq update --fix-missing && \
 	apt-get --no-install-recommends -y install \
 	git build-essential maven tomcat8 libpq-dev postgresql-common openjdk-8-jdk wget \
 	xmlstarlet netcat libpng-dev \
-	git build-essential maven libpq-dev openjdk-8-jdk wget \
 	zlib1g-dev libexpat1-dev ant curl ssl-cert zip unzip
 
 RUN curl -sL https://deb.nodesource.com/setup_8.x | bash -
@@ -29,6 +28,9 @@ COPY build.sh /bin/build.sh
 ADD apollo-config.groovy /apollo/apollo-config.groovy
 
 RUN chown -R apollo:apollo /apollo
+RUN curl -s "http://hgdownload.soe.ucsc.edu/admin/exe/linux.x86_64/blat/blat" -o /usr/local/bin/blat
+RUN chmod +x /usr/local/bin/blat
+
 USER apollo
 RUN curl -s get.sdkman.io | bash
 RUN /bin/bash -c "source $HOME/.sdkman/bin/sdkman-init.sh && yes | sdk install grails 2.5.5"
