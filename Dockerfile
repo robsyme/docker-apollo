@@ -16,6 +16,8 @@ RUN apt-get -qq update --fix-missing && \
 	apt-get --no-install-recommends -y install nodejs && \
 	apt-get autoremove -y && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
+RUN npm i -g yarn
+
 RUN cp /usr/lib/jvm/java-8-openjdk-amd64/lib/tools.jar /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/ext/tools.jar && \
 	useradd -ms /bin/bash -d /apollo apollo
 
