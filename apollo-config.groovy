@@ -100,7 +100,7 @@ apollo {
 jbrowse {
     git {
         url = "https://github.com/GMOD/jbrowse"
-        tag = "maint/1.12.5-apollo"
+        tag = "1.16.2-release"
     }
     plugins {
         WebApollo{
@@ -118,11 +118,11 @@ jbrowse {
         HideTrackLabels{
             included = true
         }
-//        GCContent{
-//            git = 'https://github.com/cmdcolin/GCContent'
-//            branch = 'master'
-//            alwaysRecheck = "true"
-//            alwaysPull = "true"
-//        }
+        GCContent{
+            git = 'https://github.com/cmdcolin/GCContent'
+            branch = 'master'
+            alwaysRecheck = "true"
+            alwaysPull = "true"
+        }
     }
 }
