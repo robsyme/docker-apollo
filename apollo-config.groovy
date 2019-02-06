@@ -106,12 +106,14 @@ jbrowse {
         WebApollo{
             included = true
         }
+/*
         NeatHTMLFeatures{
             included = System.getenv("WEBAPOLLO_JBROWSE_PLUGIN_NEATHTML") ?: true
         }
         NeatCanvasFeatures{
             included = System.getenv("WEBAPOLLO_JBROWSE_PLUGIN_NEATCANVAS") ?: true
         }
+*/
         RegexSequenceSearch{
             included = true
         }
